@@ -3,7 +3,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CommentSchema = new Schema({
-  note: String
+  note: {
+    type: String,
+    required: true
+  },
+  username: {
+    type: String,
+    required: true
+  }
 });
 
 const Comment = mongoose.model("Comment", CommentSchema);

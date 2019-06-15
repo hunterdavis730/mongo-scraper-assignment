@@ -5,14 +5,65 @@
         <h1 class="text-center">News Scraper</h1>
     </div>
 
+
+    <div class="modal fade" id="comments-modal" tabindex="-1" role="dialog" aria-labelledby="comments-modal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="comments-title">Article Comments</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {{!-- {{#each}} --}}
+
+
+                        {{!-- {{/each}} --}}
+                    </ul>
+
+                    <hr>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Add a Comment!</h4>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="username">Your Name</label>
+                                    <input type="name" class="form-control" id="username" placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="note-text">Add your comment here</label>
+                                    <textarea class="form-control" id="note-text" rows="3"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-outline-dark float-right" id="submit-comment">Save
+                                    Comment</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div>
-        <div class="row">
-            <div class="col-sm-8" id="feed-col">
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-10" id="feed-col">
                 <h2 class="text-center">News Articles</h2>
                 <hr>
-                <ul>
+                <ul class="mr-4">
                     {{#each article}}
-                    {{!-- <h3>Title: <span>{{this.title}}</span></h3> --}}
+
                     <div class="card">
                         <div class="card-header">
                             <h4>{{this.title}}</h4>
@@ -23,7 +74,11 @@
                                 <footer class="blockquote-footer">To view this article <cite title="Source Title"> <a
                                             class="text-secondary" href={{this.link}} style="text-decoration: none">
                                             click here
-                                        </a></cite></footer>
+                                        </a></cite>
+                                    <button type="button" class="btn btn-outline-dark float-right comments"
+                                        data-toggle="modal" data-target="#comments-modal" data-id={{this._id}}>View
+                                        Comments</button>
+                                </footer>
                             </blockquote>
                         </div>
                     </div>
@@ -33,14 +88,7 @@
 
 
             </div>
-            <div class="col-sm-4" id="comment-col">
 
 
-
-
-            </div>
         </div>
-
-
     </div>
-</div>
