@@ -1,0 +1,46 @@
+<div class="container">
+
+
+    <div class="jumbotron">
+        <h1 class="text-center">News Scraper</h1>
+    </div>
+
+    <div>
+        <div class="row">
+            <div class="col-sm-8" id="feed-col">
+                <h2 class="text-center">News Articles</h2>
+                <hr>
+                <ul>
+                    {{#each article}}
+                    {{!-- <h3>Title: <span>{{this.title}}</span></h3> --}}
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>{{this.title}}</h4>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>{{this.summary}}</p>
+                                <footer class="blockquote-footer">To view this article <cite title="Source Title"> <a
+                                            class="text-secondary" href={{this.link}} style="text-decoration: none">
+                                            click here
+                                        </a></cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </ul>
+
+
+            </div>
+            <div class="col-sm-4" id="comment-col">
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
